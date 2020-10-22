@@ -154,7 +154,7 @@ function clicked() {
   getData()
   let result = calculate(vValue, sValue, lzewdValue, lzewnValue, lwewValue, poValue, lsoValue, ra2sValue)
   showResult(result)
-  // clear()
+  clear()
 }
 
 

@@ -51,20 +51,18 @@ function calculate(v, s, lzewd, lzewn, lwew, po, lso, ra2s) {
   else if (v >= 225) {
     t = 1.5
   }
-  console.log(t)
   let a = 0.16 * v / t
-  console.log(a)
   let rWall = 0
 
   if (lwew == 40) {
-    rWall = lzewd - lwew + 3 - (Math.log(s / a) * 10)
+    rWall = lzewd - lwew + 3 + (Math.log10(s / a) * 10)
     if (rWall < 30) {
       rWall = 30
     }
   }
   else {
-    let rWallD = lzewd - 35 + 3 - (Math.log(s / a) * 10)
-    let rWallN = lzewn - 25 + 3 - (Math.log(s / a) * 10)
+    let rWallD = lzewd - 35 + 3 + (Math.log10(s / a) * 10)
+    let rWallN = lzewn - 25 + 3 + (Math.log10(s / a) * 10)
 
     if (rWallD > rWallN) {
       rWall = rWallD
@@ -77,7 +75,6 @@ function calculate(v, s, lzewd, lzewn, lwew, po, lso, ra2s) {
       rWall = 30
     }
   }
-  console.log(rWall)
   if (lso == 2) {
     rWall = rWall + 2
   }
@@ -85,8 +82,10 @@ function calculate(v, s, lzewd, lzewn, lwew, po, lso, ra2s) {
     rWall = rWall + 5
   }
 
-  let x = po / s
-  console.log(x)
+  rWall = rWall.toFixed()
+
+  let x = (po / s) * 100
+
   if (x <= 25) {
     x = 25
   }
@@ -99,6 +98,7 @@ function calculate(v, s, lzewd, lzewn, lwew, po, lso, ra2s) {
   else if (x > 75 && x <= 100) {
     x = 100
   }
+
 
   if ((ra2s - rWall) >= 0 && (ra2s - rWall) < 5) {
     result = rWall
@@ -131,9 +131,7 @@ function calculate(v, s, lzewd, lzewn, lwew, po, lso, ra2s) {
       result = rWall
     }
   }
-  console.log(rWall)
-  console.log(result);
-  return result.toFixed()
+  return result + 2
 }
 
 

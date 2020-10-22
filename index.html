@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    div {
+      margin: 0 auto;
+      width: 50%;
+      text-align: center;
+    }
+
+    input {
+      display: block;
+      font-size: 20px;
+      margin: 10px 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      font-size: 20px;
+    }
+
+    .count {
+      padding: 5px;
+      margin: 20px auto;
+      width: 10%;
+    }
+
+    select {
+      margin: 10px 0;
+      font-size: 20px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div>
+    <form action="" onsubmit="return false">
+      <label for="v">objętość pomieszczenia</label>
+      <input type="text" name="v" id="v">
+      <label for="s">powierzchnia ściany</label>
+      <input type="text" name='s' id='s'>
+      <label for="lzewd">hałas/dzień</label>
+      <input type="text" name='lzewd' id='lzewd'>
+      <label for="lzewn">hałas/noc</label>
+      <input type="text" name='lzewn' id='lzewn'>
+      <label for="lwew">pomieszczenie</label>
+      <select name='lwew' id='lwew'>
+        <option value="p">pokój</option>
+        <option value="kd">kuchnia</option>
+      </select>
+      <label for="po">powierzchnia okna</label>
+      <input type="text" name='po' id='po'>
+      <label for="lso">liczba przegród z oknami</label>
+      <input type="text" name='lso' id='lso'>
+      <label for="ra2s">ściana pełna[dB]</label>
+      <input type="text" name='ra2s' id='ra2s'>
+      <input type="submit" value="wylicz" class='count'>
+    </form>
+
+    <h1>Izolacyjność okna to:</h1>
+    <h1 class="result"></h1>
+  </div>
+
+
+  <script src="main.js"></script>
+</body>
+
+</html>

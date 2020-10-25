@@ -1,5 +1,8 @@
 const resultH = document.querySelector('.result')
 const btn = document.querySelector('.count')
+const clearBtn = document.querySelector('.clear')
+const clearLastRecord = document.querySelector('.clear-last-record')
+const mainTable = document.querySelector('.table')
 
 let ooValue
 let opValue
@@ -14,9 +17,17 @@ let poValue
 let lsoValue
 let ra2sValue
 
-let table = []
 
 btn.addEventListener('click', clicked)
+clearBtn.addEventListener('click', clear)
+clearLastRecord.addEventListener('click', deleteLastRecord)
+
+function deleteLastRecord() {
+  if (mainTable.childNodes.length !== 3) {
+    let lastRow = document.querySelector('.table > *:last-child')
+    lastRow.remove()
+  }
+}
 
 function getData() {
   ooValue = document.getElementById('oo').value
@@ -94,13 +105,11 @@ function calculate(oo, op, v, s, lzewd, lzewn, lwew, so, wo, po, lso, ra2s) {
 
   rWall = rWall.toFixed()
 
-  console.log(po)
-  console.log(s)
 
   let x = (po / s) * 100
   let xToShow = x.toFixed()
 
-  console.log(x)
+
 
   if (x <= 25) {
     x = 25
@@ -154,12 +163,10 @@ function calculate(oo, op, v, s, lzewd, lzewn, lwew, so, wo, po, lso, ra2s) {
 
   return resultObject
 
-  // return result + 2
 }
 
 
 function showResult(result) {
-  const mainTable = document.querySelector('.table')
   let row = document.createElement('div')
   row.classList.add('row')
 
@@ -228,23 +235,28 @@ function showResult(result) {
 }
 
 function clear() {
+  document.getElementById('oo').value = ''
+  document.getElementById('op').value = ''
   document.getElementById('v').value = ''
   document.getElementById('s').value = ''
   document.getElementById('lzewd').value = ''
   document.getElementById('lzewn').value = ''
   document.getElementById('lwew').value = ''
-  document.getElementById('po').value = ''
+  document.getElementById('so').value = ''
+  document.getElementById('wo').value = ''
   document.getElementById('lso').value = ''
   document.getElementById('ra2s').value = ''
 }
 
 function clicked() {
+  console.log(mainTable.childNodes.length)
   getData()
   if (poValue > sValue) return alert('powierzchnia okna nie może być większa niż powierzchnia ściany')
   let result = calculate(ooValue, opValue, vValue, sValue, lzewdValue, lzewnValue, lwewValue, soValue, woValue, poValue, lsoValue, ra2sValue)
   showResult(result)
-  // clear()
 }
+
+
 
 
 

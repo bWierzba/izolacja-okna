@@ -22,6 +22,15 @@ btn.addEventListener('click', clicked)
 clearBtn.addEventListener('click', clear)
 clearLastRecord.addEventListener('click', deleteLastRecord)
 
+function changeComma(v) {
+  for (i = 0; i < v.length; i++) {
+    if (v[i] == ',') {
+      v = v.substring(0, i) + '.' + v.substring(i + 1)
+    }
+  }
+  return v
+}
+
 function deleteLastRecord() {
   if (mainTable.childNodes.length !== 3) {
     let lastRow = document.querySelector('.table > *:last-child')
@@ -32,22 +41,24 @@ function deleteLastRecord() {
 function getData() {
   ooValue = document.getElementById('oo').value
   opValue = document.getElementById('op').value
-  vValue = Number(document.getElementById('v').value)
-  sValue = Number(document.getElementById('s').value)
-  lzewdValue = Number(document.getElementById('lzewd').value)
-  lzewnValue = Number(document.getElementById('lzewn').value)
-  lwewValue = document.getElementById('lwew').value
+  hValue = Number(changeComma(document.getElementById('h').value))
+  abValue = Number(changeComma(document.getElementById('ab').value))
+  vValue = hValue * abValue
+  sValue = Number(changeComma(document.getElementById('s').value))
+  lzewdValue = Number(changeComma(document.getElementById('lzewd').value))
+  lzewnValue = Number(changeComma(document.getElementById('lzewn').value))
+  lwewValue = changeComma(document.getElementById('lwew').value)
   if (lwewValue == 'kd') {
     lwewValue = 40
   }
   else {
     lwewValue = 0
   }
-  soValue = Number(document.getElementById('so').value)
-  woValue = Number(document.getElementById('wo').value)
+  soValue = Number(changeComma(document.getElementById('so').value))
+  woValue = Number(changeComma(document.getElementById('wo').value))
   poValue = soValue * woValue
-  lsoValue = Number(document.getElementById('lso').value)
-  ra2sValue = Number(document.getElementById('ra2s').value)
+  lsoValue = Number(changeComma(document.getElementById('lso').value))
+  ra2sValue = Number(changeComma(document.getElementById('ra2s').value))
 }
 
 function calculate(oo, op, v, s, lzewd, lzewn, lwew, so, wo, po, lso, ra2s) {
@@ -249,7 +260,6 @@ function clear() {
 }
 
 function clicked() {
-  console.log(mainTable.childNodes.length)
   getData()
   if (poValue > sValue) return alert('powierzchnia okna nie może być większa niż powierzchnia ściany')
   let result = calculate(ooValue, opValue, vValue, sValue, lzewdValue, lzewnValue, lwewValue, soValue, woValue, poValue, lsoValue, ra2sValue)

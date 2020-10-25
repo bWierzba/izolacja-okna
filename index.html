@@ -7,8 +7,13 @@
   <title>Document</title>
 
   <style>
-    div {
-      margin: 0 auto;
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .form {
+      margin: 20px auto;
       width: 50%;
       text-align: center;
     }
@@ -36,13 +41,31 @@
       margin: 10px 0;
       font-size: 20px;
     }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: -1px;
+    }
+
+    .element {
+      flex-basis: 8%;
+      border: 1px solid black;
+      height: 20px;
+      text-align: center;
+    }
   </style>
 
 </head>
 
 <body>
-  <div>
+  <div class="form">
     <form action="" onsubmit="return false">
+      <label for="oo">oznaczenie okna (max 20 znaków)</label>
+      <input type="text" name="oo" id="oo">
+      <label for="op">oznacznie pomieszczenia (max 20 znaków)</label>
+      <input type="text" name="op" id="op">
       <label for="v">objętość pomieszczenia</label>
       <input type="text" name="v" id="v">
       <label for="s">powierzchnia ściany</label>
@@ -56,17 +79,32 @@
         <option value="p">pokój</option>
         <option value="kd">kuchnia</option>
       </select>
-      <label for="po">powierzchnia okna</label>
-      <input type="text" name='po' id='po'>
+      <label for="wo">wysokość okna</label>
+      <input type="text" name='wo' id='wo'>
+      <label for="po">szerokość okna</label>
+      <input type="text" name='so' id='so'>
       <label for="lso">liczba przegród z oknami</label>
       <input type="text" name='lso' id='lso'>
       <label for="ra2s">ściana pełna[dB]</label>
       <input type="text" name='ra2s' id='ra2s'>
       <input type="submit" value="wylicz" class='count'>
     </form>
-
-    <h1>Izolacyjność okna to:</h1>
-    <h1 class="result"></h1>
+  </div>
+  <div class="table">
+    <div class="row">
+      <div class="element">ozn. okna</div>
+      <div class="element">ozn. pomieszczenia</div>
+      <div class="element">szerokość okna[m]</div>
+      <div class="element">wysokość okna[m]</div>
+      <div class="element">pow. okna[m2]</div>
+      <div class="element">pow. ściany[m2]</div>
+      <div class="element">% okno/ściana</div>
+      <div class="element">ob. pomieszczenia[m3]</div>
+      <div class="element">czas pogłosu T [s]</div>
+      <div class="element">wym. iz. prz. R'a2[dB]</div>
+      <div class="element">iz. cz. pełnej Ra2[dB]</div>
+      <div class="element">wym. iz. okna Ra2[dB]</div>
+    </div>
   </div>
 
 

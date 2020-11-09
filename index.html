@@ -51,22 +51,22 @@
       font-size: 20px;
     }
 
-    .row {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      margin-top: -1px;
-      font-size: 15px;
+    .table {
+      width: 90%;
+      margin: 0 auto;
     }
 
-    .element {
-      flex-basis: 8%;
+    table {
       border: 1px solid black;
-      height: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 2px;
       text-align: center;
     }
   </style>
-
 </head>
 
 <body>
@@ -102,27 +102,30 @@
       <button type="submit" value="wylicz" class='count'>wylicz</button>
       <button class="clear">wyczyść formularz</button>
       <button class="clear-last-record">usuń ostatni wiersz</button>
+      <button class="pdf">PDF</button>
     </form>
   </div>
   <div class="table">
-    <div class="row">
-      <div class="element">ozn. okna</div>
-      <div class="element">ozn. pomieszczenia</div>
-      <div class="element">szerokość okna[m]</div>
-      <div class="element">wysokość okna[m]</div>
-      <div class="element">pow. okna[m2]</div>
-      <div class="element">pow. ściany[m2]</div>
-      <div class="element">% okno/ściana</div>
-      <div class="element">ob. pomieszczenia[m3]</div>
-      <div class="element">czas pogłosu T [s]</div>
-      <div class="element">wym. iz. prz. R'a2[dB]</div>
-      <div class="element">iz. cz. pełnej Ra2[dB]</div>
-      <div class="element">wym. iz. okna Ra2[dB]</div>
-    </div>
+    <table>
+      <tr class="row">
+        <th class="element">ozn. okna</th>
+        <th class="element">ozn. pomieszczenia</th>
+        <th class="element">wysokość okna[m]</th>
+        <th class="element">szerokość okna[m]</th>
+        <th class="element">pow. okna[m2]</th>
+        <th class="element">pow. ściany[m2]</th>
+        <th class="element">% okno/ściana</th>
+        <th class="element">ob. pomieszczenia[m3]</th>
+        <th class="element">czas pogłosu T [s]</th>
+        <th class="element">wym. iz. prz. R'a2[dB]</th>
+        <th class="element">iz. cz. pełnej Ra2[dB]</th>
+        <th class="element">wym. iz. okna Ra2[dB]</th>
+      </tr>
+    </table>
   </div>
 
-
   <script src="main.js"></script>
+  <script src="pdf.js"></script>
 </body>
 
 </html>

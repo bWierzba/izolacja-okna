@@ -2,7 +2,7 @@ const resultH = document.querySelector('.result')
 const btn = document.querySelector('.count')
 const clearBtn = document.querySelector('.clear')
 const clearLastRecord = document.querySelector('.clear-last-record')
-const mainTable = document.querySelector('.table')
+const mainTable = document.querySelector('tbody')
 
 let ooValue
 let opValue
@@ -32,8 +32,8 @@ function changeComma(v) {
 }
 
 function deleteLastRecord() {
-  if (mainTable.childNodes.length !== 3) {
-    let lastRow = document.querySelector('.table > *:last-child')
+  if (mainTable.childNodes.length !== 2) {
+    let lastRow = document.querySelector('tbody > *:last-child')
     lastRow.remove()
   }
 }
@@ -178,65 +178,65 @@ function calculate(oo, op, v, s, lzewd, lzewn, lwew, so, wo, po, lso, ra2s) {
 
 
 function showResult(result) {
-  let row = document.createElement('div')
+  let row = document.createElement('tr')
   row.classList.add('row')
 
-  let oo = document.createElement('div')
+  let oo = document.createElement('td')
   oo.classList.add('element')
   oo.textContent = result.oo
   row.appendChild(oo)
 
-  let op = document.createElement('div')
+  let op = document.createElement('td')
   op.classList.add('element')
   op.textContent = result.op
   row.appendChild(op)
 
-  let so = document.createElement('div')
+  let so = document.createElement('td')
   so.classList.add('element')
   so.textContent = result.so
   row.appendChild(so)
 
-  let wo = document.createElement('div')
+  let wo = document.createElement('td')
   wo.classList.add('element')
   wo.textContent = result.wo
   row.appendChild(wo)
 
-  let po = document.createElement('div')
+  let po = document.createElement('td')
   po.classList.add('element')
   po.textContent = result.po
   row.appendChild(po)
 
-  let ps = document.createElement('div')
+  let ps = document.createElement('td')
   ps.classList.add('element')
   ps.textContent = result.ps
   row.appendChild(ps)
 
-  let ppo = document.createElement('div')
+  let ppo = document.createElement('td')
   ppo.classList.add('element')
   ppo.textContent = result.ppo
   row.appendChild(ppo)
 
-  let objp = document.createElement('div')
+  let objp = document.createElement('td')
   objp.classList.add('element')
   objp.textContent = result.objp
   row.appendChild(objp)
 
-  let cp = document.createElement('div')
+  let cp = document.createElement('td')
   cp.classList.add('element')
   cp.textContent = result.cp
   row.appendChild(cp)
 
-  let wrs = document.createElement('div')
+  let wrs = document.createElement('td')
   wrs.classList.add('element')
   wrs.textContent = result.wrs
   row.appendChild(wrs)
 
-  let rcp = document.createElement('div')
+  let rcp = document.createElement('td')
   rcp.classList.add('element')
   rcp.textContent = result.rcp
   row.appendChild(rcp)
 
-  let ro = document.createElement('div')
+  let ro = document.createElement('td')
   ro.classList.add('element')
   ro.textContent = result.ro
   row.appendChild(ro)
